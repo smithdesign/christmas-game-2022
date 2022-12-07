@@ -1,0 +1,351 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[type=text] {
+    padding: 15px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+.candy-stripe {
+    background: repeating-linear-gradient(
+        45deg,
+        #fd0202,
+        #fd0202 20px,
+        #000000 20px,
+        #000000 40px
+    );
+    text-shadow: 0px 0px 3px rgba(0, 0, 0, 1);
+    animation: stripe 30s linear infinite;
+}
+
+.candy-stripe:hover {
+    box-shadow: 0px 0px 14px 5px rgba(255,255,255,1);
+    transition: all ease-in .3s;
+}
+
+.end-game {
+    background: #FDF9F8;
+    height: 100%;
+}
+
+.icon {
+    display: block;
+    flex-grow: 1;
+}
+
+.stage {
+    height: 90vh;
+    width: 90vw;
+    margin: 5vh auto;
+    text-align: center;
+    border-radius: 5px;
+    border: 5px solid #000;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
+    position: relative;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    padding: 20px;
+}
+
+.game-start {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    background: url(../images/AdobeStock_117747093.2c360f4b.webp), rgba(255, 255, 255, 0.3);
+    background-repeat: no-repeat;
+    background-blend-mode: multiply;
+    background-size: cover;
+}
+
+.game-start h1 {
+    color: #FFF;
+    text-shadow: 0px 0px 3px rgba(0, 0, 0, 1);
+}
+
+.player-form {
+    flex: 1;
+}
+
+.player-list {
+    color: #FFF;
+    text-shadow: 0px 0px 3px rgba(0, 0, 0, 1);
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.player-list ul {
+    margin: 0 0 25px 0;
+    padding: 0;
+}
+
+.player-list ul li {
+    list-style-type: none;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.play-background {
+    background: url(../images/AdobeStock_236939392.6bc92224.webp);
+    background-size: cover;
+}
+
+.tile {
+    border: 1px solid #000;
+    background: #FFF;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 3px;
+    transition: all .2s ease-in-out;
+}
+
+.tile:hover {
+    transform: scale(110%);
+}
+
+.tile:hover .icon {
+    animation: tilt-n-move-shaking 0.25s linear infinite;
+}
+
+.tile-button {
+    display: flex;
+    width: 100%;
+    cursor: pointer;
+    padding: 20px 0;
+    align-items: center;
+}
+
+.tile-content {
+    flex-grow: 1;
+}
+
+.tile.chosen {
+    background-color: #eee;
+    color:#999;
+    cursor: not-allowed;
+    border: 2px dashed #999;
+}
+
+.tile.chosen .tile-button:hover {
+    cursor: not-allowed;
+}
+
+.tile.chosen .tile-button:hover .icon {
+    animation: none;
+}
+
+.title {
+    background: url(../images/AdobeStock_294485704.51bed055.webp)  no-repeat;
+    background-size: cover;
+    height: 100%;
+    position: relative;
+}
+
+.title-content {
+    position: absolute;
+    top:35vh;
+    right: 6vw;
+    width: 400px;
+    font-size: 1.85rem;
+    font-family: 'Pacifico', cursive;
+}
+
+.current-player-info {
+    font-family: 'Pacifico', cursive;
+    font-size: 2rem;
+    padding: 20px 0;
+}
+
+.mary {
+    position: absolute;
+    bottom: 0;
+    right: 20px;
+    font-style: italic;
+    font-size: 24px;
+}
+
+.mary img {
+    height: 40px;
+    vertical-align: bottom;
+    animation: wiggle 4s linear infinite;
+    margin-right: 5px;
+}
+
+.modal-content,
+.modal-title {
+    text-align: center;
+}
+
+.modal-title {
+    font-family: 'Pacifico', cursive;
+    font-size: 2em;
+    margin-top:0;
+}
+
+.modal-content {
+    display: flex;
+}
+
+.modal-image {
+    text-align: left;
+    width: 50%;
+}
+
+.modal-prize {
+    font-size: 2rem;
+    width:50%;
+}
+
+.modal-prize h2 {
+    font-size: 4rem;
+}
+
+.no-radius {
+    border-radius: 0;
+}
+
+.no-left-radius {
+    border-radius: 0 5px 5px 0;
+}
+
+.ReactModal__Overlay {
+    opacity: 0;
+    transition: opacity 200ms ease-in-out;
+}
+
+.ReactModal__Overlay--after-open{
+    opacity: 1;
+}
+
+.ReactModal__Overlay--before-close{
+    opacity: 0;
+}
+
+.results {
+    padding-bottom: 100px;
+}
+
+.results-table {
+    width: 400px;
+    margin: 25px auto;
+    font-size: 25px;
+
+    border-collapse: collapse;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.results-table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+}
+
+.results-table th,
+.results-table td {
+    padding: 12px 15px;
+    text-align: center;
+}
+
+.results-table tbody tr {
+    border-bottom: thin solid #dddddd;
+}
+
+.results-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.results-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+
+.play-controls {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 20px 0;
+}
+
+.play-controls button {
+    margin: 0 10px;
+}
+
+.winner-name {
+    font-size: 40px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.winner-score {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+@keyframes stripe {
+    0% {background-position-x: 0px;}
+    50% {background-position-x: 1000px;}
+    100% {background-position-x: 0px;}
+}
+
+@keyframes tilt-n-move-shaking {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    25% { transform: translate(5px, 5px) rotate(5deg); }
+    50% { transform: translate(0, 0) rotate(0eg); }
+    75% { transform: translate(-5px, 5px) rotate(-5deg); }
+    100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+@keyframes wiggle {
+    0%, 7% {
+      transform: rotateZ(0);
+    }
+    15% {
+      transform: rotateZ(-15deg);
+    }
+    20% {
+      transform: rotateZ(10deg);
+    }
+    25% {
+      transform: rotateZ(-10deg);
+    }
+    30% {
+      transform: rotateZ(6deg);
+    }
+    35% {
+      transform: rotateZ(-4deg);
+    }
+    40%, 100% {
+      transform: rotateZ(0);
+    }
+}
