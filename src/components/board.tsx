@@ -1,4 +1,3 @@
-import React from 'react';
 import { useAppSelector } from '../hooks';
 import CurrentPlayerInfo from './current-player-info';
 import Tile from './tile';

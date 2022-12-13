@@ -38,7 +38,7 @@ export const MODAL_HEADER_BLURBS = {
         'Are You Winning Yet?',
     ],
     great: [
-        'Oh Shit! You Found some Big Ass Cash!',
+        'Oh Shit! You Found Some Big Ass Cash!',
         'You Rich! Now You Can Pay the Rent',
         'That\'s Like 5 Meals at McDanks!',
         'So Cash... Much Wow',

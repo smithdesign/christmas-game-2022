@@ -1,11 +1,10 @@
-import React from 'react';
 import { useAppSelector, useAppDispatch } from '../hooks';
 import { changeStage } from '../reducers/gameSlice';
 import PlayerList from './player-list';
 import NewPlayerForm from './new-player-form';
 import '../css/game.css';
 
-function GameStart() {
+function AddPlayers() {
     const dispatch = useAppDispatch();
     const players = useAppSelector((state) => state.game.players);
     const onChangeStage = (stage: string) => {
@@ -29,4 +28,4 @@ function GameStart() {
     );
 }
 
-export default GameStart;
+export default AddPlayers;

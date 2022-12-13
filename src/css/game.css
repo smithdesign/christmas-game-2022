@@ -7,7 +7,7 @@ body {
 }
 
 button {
-    background-color: #4CAF50; /* Green */
+    background-color: #4caf50; /* Green */
     border: none;
     color: white;
     padding: 15px 32px;
@@ -18,12 +18,26 @@ button {
     font-weight: bold;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color .3s linear;
 }
 
-input[type=text] {
+button:hover {
+    background-color: #3a853c;
+}
+
+input[type='text'] {
     padding: 15px 20px;
     margin: 8px 0;
     box-sizing: border-box;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    padding: 20px;
 }
 
 .candy-stripe {
@@ -39,12 +53,18 @@ input[type=text] {
 }
 
 .candy-stripe:hover {
-    box-shadow: 0px 0px 14px 5px rgba(255,255,255,1);
-    transition: all ease-in .3s;
+    box-shadow: 0px 0px 14px 5px rgba(255, 255, 255, 1);
+    transition: all ease-in 0.3s;
+}
+
+.current-player-info {
+    font-family: 'Pacifico', cursive;
+    font-size: 2rem;
+    padding: 20px 0;
 }
 
 .end-game {
-    background: #FDF9F8;
+    background: #fdf9f8;
     height: 100%;
 }
 
@@ -53,136 +73,22 @@ input[type=text] {
     flex-grow: 1;
 }
 
-.stage {
-    height: 90vh;
-    width: 90vw;
-    margin: 5vh auto;
-    text-align: center;
-    border-radius: 5px;
-    border: 5px solid #000;
-    box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
-    overflow: hidden;
-    position: relative;
-}
-
-.board {
-    display: grid;
-    grid-template-columns: repeat(10, 1fr);
-    grid-template-rows: repeat(10, 1fr);
-    grid-column-gap: 10px;
-    grid-row-gap: 10px;
-    padding: 20px;
-}
-
 .game-start {
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-    background: url(../images/AdobeStock_117747093.2c360f4b.webp), rgba(255, 255, 255, 0.3);
+    background: url(../images/AdobeStock_117747093.2c360f4b.webp),
+        rgba(255, 255, 255, 0.3);
     background-repeat: no-repeat;
     background-blend-mode: multiply;
     background-size: cover;
 }
 
 .game-start h1 {
-    color: #FFF;
+    color: #fff;
     text-shadow: 0px 0px 3px rgba(0, 0, 0, 1);
-}
-
-.player-form {
-    flex: 1;
-}
-
-.player-list {
-    color: #FFF;
-    text-shadow: 0px 0px 3px rgba(0, 0, 0, 1);
-    background-color: rgba(0, 0, 0, 0.3);
-}
-
-.player-list ul {
-    margin: 0 0 25px 0;
-    padding: 0;
-}
-
-.player-list ul li {
-    list-style-type: none;
-    font-size: 2rem;
-    margin-bottom: 10px;
-}
-
-.play-background {
-    background: url(../images/AdobeStock_236939392.6bc92224.webp);
-    background-size: cover;
-}
-
-.tile {
-    border: 1px solid #000;
-    background: #FFF;
-    font-size: 24px;
-    font-weight: bold;
-    text-align: center;
-    border-radius: 3px;
-    transition: all .2s ease-in-out;
-}
-
-.tile:hover {
-    transform: scale(110%);
-}
-
-.tile:hover .icon {
-    animation: tilt-n-move-shaking 0.25s linear infinite;
-}
-
-.tile-button {
-    display: flex;
-    width: 100%;
-    cursor: pointer;
-    padding: 20px 0;
-    align-items: center;
-}
-
-.tile-content {
-    flex-grow: 1;
-}
-
-.tile.chosen {
-    background-color: #eee;
-    color:#999;
-    cursor: not-allowed;
-    border: 2px dashed #999;
-}
-
-.tile.chosen .tile-button:hover {
-    cursor: not-allowed;
-}
-
-.tile.chosen .tile-button:hover .icon {
-    animation: none;
-}
-
-.title {
-    background: url(../images/AdobeStock_294485704.51bed055.webp)  no-repeat;
-    background-size: cover;
-    height: 100%;
-    position: relative;
-}
-
-.title-content {
-    position: absolute;
-    top:35vh;
-    right: 6vw;
-    width: 400px;
-    font-size: 1.85rem;
-    font-family: 'Pacifico', cursive;
-}
-
-.current-player-info {
-    font-family: 'Pacifico', cursive;
-    font-size: 2rem;
-    padding: 20px 0;
 }
 
 .mary {
@@ -205,24 +111,24 @@ input[type=text] {
     text-align: center;
 }
 
-.modal-title {
-    font-family: 'Pacifico', cursive;
-    font-size: 2em;
-    margin-top:0;
-}
-
 .modal-content {
     display: flex;
 }
 
+.modal-title {
+    font-family: 'Pacifico', cursive;
+    font-size: 2em;
+    margin-top: 0;
+}
+
 .modal-image {
     text-align: left;
-    width: 50%;
+    width: 500px;
 }
 
 .modal-prize {
     font-size: 2rem;
-    width:50%;
+    width: 50%;
 }
 
 .modal-prize h2 {
@@ -237,16 +143,53 @@ input[type=text] {
     border-radius: 0 5px 5px 0;
 }
 
+.player-form {
+    flex: 1;
+}
+
+.player-list {
+    color: #fff;
+    text-shadow: 0px 0px 3px rgba(0, 0, 0, 1);
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.player-list ul {
+    margin: 0 0 25px 0;
+    padding: 0;
+}
+
+.player-list ul li {
+    list-style-type: none;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.play-background {
+    background: url(../images/AdobeStock_236939392.6bc92224.webp);
+    background-size: cover;
+}
+
+.play-controls {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 20px 0;
+}
+
+.play-controls button {
+    margin: 0 10px;
+}
+
 .ReactModal__Overlay {
     opacity: 0;
     transition: opacity 200ms ease-in-out;
 }
 
-.ReactModal__Overlay--after-open{
+.ReactModal__Overlay--after-open {
     opacity: 1;
 }
 
-.ReactModal__Overlay--before-close{
+.ReactModal__Overlay--before-close {
     opacity: 0;
 }
 
@@ -290,15 +233,78 @@ input[type=text] {
     border-bottom: 2px solid #009879;
 }
 
-.play-controls {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    padding: 20px 0;
+.stage {
+    height: 90vh;
+    width: 90vw;
+    margin: 5vh auto;
+    text-align: center;
+    border-radius: 5px;
+    border: 5px solid #000;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
+    position: relative;
 }
 
-.play-controls button {
-    margin: 0 10px;
+.tile {
+    border: 1px solid #000;
+    background: #fff;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 3px;
+    transition: all 0.2s ease-in-out;
+}
+
+.tile:hover {
+    transform: scale(110%);
+}
+
+.tile:hover .icon {
+    animation: tilt-n-move-shaking 0.25s linear infinite;
+}
+
+.tile-button {
+    display: flex;
+    width: 100%;
+    cursor: pointer;
+    padding: 20px 0;
+    align-items: center;
+}
+
+.tile-content {
+    flex-grow: 1;
+}
+
+.tile.chosen {
+    background-color: #eee;
+    color: #999;
+    cursor: not-allowed;
+    border: 2px dashed #999;
+}
+
+.tile.chosen .tile-button:hover {
+    cursor: not-allowed;
+}
+
+.tile.chosen .tile-button:hover .icon {
+    animation: none;
+}
+
+.title {
+    background: url(../images/AdobeStock_294485704.51bed055.webp) no-repeat;
+    background-size: cover;
+    height: 100%;
+    position: relative;
+}
+
+.title-content {
+    position: absolute;
+    top: 35vh;
+    right: 6vw;
+    width: 400px;
+    font-size: 1.85rem;
+    font-family: 'Pacifico', cursive;
 }
 
 .winner-name {
@@ -313,39 +319,57 @@ input[type=text] {
 }
 
 @keyframes stripe {
-    0% {background-position-x: 0px;}
-    50% {background-position-x: 1000px;}
-    100% {background-position-x: 0px;}
+    0% {
+        background-position-x: 0px;
+    }
+    50% {
+        background-position-x: 1000px;
+    }
+    100% {
+        background-position-x: 0px;
+    }
 }
 
 @keyframes tilt-n-move-shaking {
-    0% { transform: translate(0, 0) rotate(0deg); }
-    25% { transform: translate(5px, 5px) rotate(5deg); }
-    50% { transform: translate(0, 0) rotate(0eg); }
-    75% { transform: translate(-5px, 5px) rotate(-5deg); }
-    100% { transform: translate(0, 0) rotate(0deg); }
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    25% {
+        transform: translate(5px, 5px) rotate(5deg);
+    }
+    50% {
+        transform: translate(0, 0) rotate(0eg);
+    }
+    75% {
+        transform: translate(-5px, 5px) rotate(-5deg);
+    }
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
 }
 
 @keyframes wiggle {
-    0%, 7% {
-      transform: rotateZ(0);
+    0%,
+    7% {
+        transform: rotateZ(0);
     }
     15% {
-      transform: rotateZ(-15deg);
+        transform: rotateZ(-15deg);
     }
     20% {
-      transform: rotateZ(10deg);
+        transform: rotateZ(10deg);
     }
     25% {
-      transform: rotateZ(-10deg);
+        transform: rotateZ(-10deg);
     }
     30% {
-      transform: rotateZ(6deg);
+        transform: rotateZ(6deg);
     }
     35% {
-      transform: rotateZ(-4deg);
+        transform: rotateZ(-4deg);
     }
-    40%, 100% {
-      transform: rotateZ(0);
+    40%,
+    100% {
+        transform: rotateZ(0);
     }
 }

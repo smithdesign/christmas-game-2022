@@ -35,7 +35,7 @@ function NewPlayerForm() {
         <div className="player-form">
             <div className="player-stage">
                 <form onSubmit={onAddPlayer} className="form-new-player">
-                    <input ref={ref} type="text" name="name" id="new-player-name" data-test="new-player-name" />
+                    <input ref={ref} type="text" name="name" id="new-player-name" data-test="new-player-name" autoFocus />
                     <button type="submit" className="no-left-radius" id="new-player-button" data-test="new-player-button">Add Player</button>
                 </form>
             </div>
