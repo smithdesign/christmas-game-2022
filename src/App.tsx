@@ -13,14 +13,13 @@ function App() {
 
     return (
         <div className="stage">
-            {(gameStage === 'play' || gameStage === 'end') && (
-                <PlayerControls />
-            )}
-
             {gameStage === 'start' && <TitleScreen />}
             {gameStage === 'addPlayers' && <AddPlayers />}
             {gameStage === 'play' && <Board />}
             {gameStage === 'end' && <GameEnd />}
+            {(gameStage === 'play' || gameStage === 'end') && (
+                <PlayerControls />
+            )}
             {gameStage === 'start' && <DrunkMary />}
         </div>
     );

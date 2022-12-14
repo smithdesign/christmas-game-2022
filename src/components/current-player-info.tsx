@@ -1,4 +1,3 @@
-import React from 'react';
 import { useAppSelector } from '../hooks';
 import { numberFormat } from '../util/common_game';
 import '../css/game.css';
@@ -10,12 +9,12 @@ function CurrentPlayerInfo() {
 
     return (
         <div className="current-player-info">
-            <p>
+            <p className="current-player-info-name">
                 {player.name}
                 {' '}
                 Pick a Box!
             </p>
-            <p>
+            <p className="current-player-info-score">
                 {player.name}'s Current Cash:
                 {' '}
                 {numberFormat(player.score)}
