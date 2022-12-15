@@ -3,6 +3,7 @@ declare global {
         id: string,
         name: string,
         score: number,
+        icon: string
       }
       
     interface Square {
@@ -10,9 +11,17 @@ declare global {
         name: number,
         amount: number,
         isChosen: boolean,
-        icon: string
+        icon: string,
+        iconAlt?: string
     }
-    
+
+    interface SquareUpdate {
+        id: string,
+        icon: string,
+        iconAlt: string,
+        isChosen: boolean,
+    }
+
     interface PlayerScore {
         id: string,
         score: number
@@ -30,6 +39,12 @@ declare global {
         meh: string[],
         good: string[],
         great: string[]
+    }
+
+    interface Icon {
+        icon: string,
+        size?: number,
+        description?: string
     }
 }
 
